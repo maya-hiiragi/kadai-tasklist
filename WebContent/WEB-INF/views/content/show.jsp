@@ -14,7 +14,17 @@
 	        </tr>
         </table>
         <p><a href="<c:url value='/edit?id=${tasks.id}'/>">このデータを編集する。</a></p>
-        <p><a href="<c:url value='/delete?id=${tasks.id}'/>">このデータを削除する。</a></p>
+        <p><a href="#" onclick="confirmDelete();">このデータを削除する。</a></p>
+        <form method="post" action="<c:url value='/delete?id=${tasks.id}'/>">
+            <input type="hidden" name="_token" value="<c:out value='${_token}'/>">
+        </form>
+        <script>
+        function confirmDelete(){
+	        if (confirm("このデータを削除しますか？")){
+	            document.forms[0].submit();
+	        }
+        }
+        </script>
         <p><a href="<c:url value='/index'/>">タスク一覧に戻る。</a></p>
     </c:param>
 </c:import>

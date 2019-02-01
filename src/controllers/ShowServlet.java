@@ -33,6 +33,7 @@ public class ShowServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //値ゲット
+        String _token = request.getSession().getId();
         int id = Integer.valueOf(request.getParameter("id"));
         EntityManager em = DbUtil.getEntityManager();
         Tasks tasks = em.find(Tasks.class, id);
@@ -40,6 +41,7 @@ public class ShowServlet extends HttpServlet {
 
         //値セット
         request.setAttribute("tasks", tasks);
+        request.setAttribute("_token", _token);
 
         //ページ表示
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/content/show.jsp");
