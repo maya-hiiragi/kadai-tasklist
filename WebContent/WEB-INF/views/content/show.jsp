@@ -6,7 +6,7 @@
         <table>
 	        <tr>
 	            <th>ID</th>
-	            <td><c:out value="${tasls.id}"/></td>
+	            <td><c:out value="${tasks.id}"/></td>
 	        </tr>
 	        <tr>
 	            <th>タスク内容</th>

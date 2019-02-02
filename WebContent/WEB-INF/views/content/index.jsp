@@ -3,10 +3,14 @@
 <c:import url="../layout/app.jsp">
 	<c:param name="content">
         <h2>タスク一覧</h2>
-        <c:forEach var="task" items="${tasks}">
-            <a href="<c:url value='/show?id=${task.id}'/>"><c:out value="${task.id}"/></a>
-            <c:out value="${task.content}"/>
-        </c:forEach>
+        <ul>
+	        <c:forEach var="task" items="${tasks}">
+	            <li>
+		            <a href="<c:url value='/show?id=${task.id}'/>"><c:out value="${task.id}"/></a>
+		            <c:out value="${task.content}"/>
+		        </li>
+	        </c:forEach>
+        </ul>
         <p><a href="<c:url value='/new'/>">作成ページ</a></p>
 	</c:param>
 </c:import>

@@ -3,7 +3,14 @@
 <input name="_token" type="hidden" value="<c:out value='${_token}'/>">
 
 <label id="id">ID</label>
-<input name="id" type="text" disabled="disabled" value="<c:out value='${tasks.id}'/>">
+<c:choose>
+    <c:when test="${tasks.id == 0}">
+        <input name="id" type="text" disabled="disabled">
+    </c:when>
+    <c:otherwise>
+        <input name="id" type="text" disabled="disabled" value="<c:out value='${tasks.id}'/>">
+    </c:otherwise>
+</c:choose>
 <br/>
 
 <label id="content">タスク内容</label>
